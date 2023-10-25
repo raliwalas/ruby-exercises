@@ -45,5 +45,9 @@ end
 
 def space_remover(string)
   # remove all the spaces in the string using gsub
-  string.delete(" ")
+  #string.delete(" ")
+
+  # gsub does it for the entire string vs .sub just does it to the first appearance
+  # both .delete and .gsub pass the tests
+  string.gsub(" ", "")
 end
