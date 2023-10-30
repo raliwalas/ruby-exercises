@@ -43,10 +43,46 @@ arr.first.delete(arr.first.last)
 # answer
 
 =begin 
+.. means get the range starting from position 1 and ending at position 3 (inclusive)
+
+In 1. 
+irb(main):015:0> arr = arr.product(Array(1..3))
+=> [["b", 1], ["b", 2], ["b", 3], ["a", 1], ["a", 2], ["a", 3]]
+
+irb(main):016:0> arr.first.delete(arr.first.last)
+=> 1
+irb(main):017:0> arr
+=> [["b"], ["b", 2], ["b", 3], ["a", 1], ["a", 2], ["a", 3]]
 
 
+In 2. 
 
-end 
+irb(main):021:0> arr = arr.product([Array(1..3)])
+=> [["b", [1, 2, 3]], ["a", [1, 2, 3]]]
+irb(main):022:0> arr.first.delete(arr.first.last)
+=> [1, 2, 3]
+irb(main):023:0> arr
+=> [["b"], ["a", [1, 2, 3]]]
+
+
+They both make 2d arrays. In 1, it makes 6 arrays that are 2x2 vs. 2 makes 2x2 arrays,
+with nested arrays of 1x3. 
+
+arr.first.delete(arr.first.last)
+- take a look in the 0 position (first array)
+- we are deleting arr.first.last
+
+- in 1. find the 0 position of the 'inner layer array' -- need to get better with terms
+  - which was ["b", 1]
+  - delete the last value of that array, which was 1
+
+- in 2. find the first position of the 'inner array' again
+  - this time the last value is the nested array so you delete [1, 2, 3]
+  - if we wanted to only take out the 3 or whatever individual value
+    we'd have to specify to go inside the additional nested layer
+
+
+=end 
 
 
 
@@ -55,6 +91,12 @@ end
 # How do you return the word "example" from the following array?
 
 arr = [["test", "hello", "world"],["example", "mem"]]
+
+# answer
+
+# second array (first positon), first positon (aka 0)
+
+arr[1][0]
 
 
 ### Exercise 4 ###
@@ -103,7 +145,7 @@ TypeError: no implicit conversion of String into Integer
 
 What is the problem and how can it be fixed?
 
-end
+=end
 
 
 # answer 
@@ -125,4 +167,4 @@ You should have two arrays at the end of this program,
 The original array and the new array you've created. 
 Print both arrays to the screen using the p method instead of puts.
 
-end
+=end
