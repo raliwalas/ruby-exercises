@@ -4,6 +4,9 @@ Additional exercises as per suggested in the OP assignment.
 
 Exercises from https://launchschool.com/books/ruby/read/arrays
 
+
+running them with irb
+
 =end
 
 
@@ -38,6 +41,12 @@ arr = arr.product([Array(1..3)])
 arr.first.delete(arr.first.last)
 
 # answer
+
+=begin 
+
+
+
+end 
 
 
 
