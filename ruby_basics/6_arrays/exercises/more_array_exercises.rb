@@ -114,7 +114,16 @@ arr.index[5]
 # 3. 
 arr[5]
 
-# answer 
+=begin
+answers
+
+1. outputs 3 because there are 3 fives in the arr
+
+2. outputs an error
+(irb):6:in `<main>': undefined method `[]' for #<Enumerator: [15, 7, 18, 5, 12, 8, 5, 1]:index> (NoMethodError)
+
+3. outputs the value in the 5th position, which is 8. 
+=end
 
 
 ### Exercise 5 ###
@@ -125,6 +134,12 @@ string = "Welcome to America!"
 a = string[6]
 b = string[11]
 c = string[19]
+
+=begin
+a is e
+b is A
+c is nil because there are only 18 characters in the string
+=end
 
 
 ### Exercise 6 ###
@@ -145,16 +160,23 @@ TypeError: no implicit conversion of String into Integer
 
 What is the problem and how can it be fixed?
 
+
+
+answer
+
+names['margaret'] returns the position, which is 3, which is why it is confused
+It is expecting you to assign it to an integer, not a string
+
 =end
-
-
-# answer 
 
 
 ### Exercise 7 ###
 
 # Use the each_with_index method to iterate through an array of your creation that prints each index and value of the array.
 
+arr = ["here", "is", "an", "array"]
+
+arr.each_with_index {|value, index| puts "#{index}. #{value}"}
 
 
 ### Exercise 8 ###
@@ -168,3 +190,15 @@ The original array and the new array you've created.
 Print both arrays to the screen using the p method instead of puts.
 
 =end
+
+original = [5, 10, 15, 20, 25]
+
+new_arr = []
+
+
+original.each do |value|
+  new_arr << value + 2
+end
+  
+p original
+p new_arr
