@@ -2,7 +2,7 @@
 
 additional exercises from https://launchschool.com/books/ruby/read/hashes
 
-will be running these in irb in my commandline
+will be running these in irb on my commandline
 
 = end
 
@@ -20,6 +20,17 @@ family = {  uncles: ["bob", "joe", "steve"],
             aunts: ["mary","sally","susan"]
           }
 
+
+
+# answer
+
+siblings = family.select do |k, v|
+    k == :sisters || k == :brothers
+end
+
+arr = siblings.values.flatten # need the flatten to combine the 2 arrs (sisters and bros)
+
+p arr
 
 #### Exercise 2 ####
 =begin
