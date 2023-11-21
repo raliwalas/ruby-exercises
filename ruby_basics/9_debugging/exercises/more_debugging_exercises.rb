@@ -61,3 +61,58 @@ execute { puts "Hello from inside the execute method!" }
 # CORRECTION: Nothing is printed to the screen because the block is never activated with the .call method. The method returns a Proc object.
 
 
+### Exercise 3 ###
+
+# What is exception handling and what problem does it solve?
+
+=begin
+# answer
+
+Exceptions handle unexpected inputs. It allows for the program to still run if the user inputs 
+something unexpect or incorrect. This prevents the program from crashing - it communicates rather than crashing
+
+# Correction:
+- "handling error by changing the flow of control"
+- important to note the flow of control
+
+=end
+
+### Exercise 4 ###
+
+# Modify the code in exercise 2 to make the block execute properly.
+
+def execute(&block)
+    block.call
+end
+  
+execute { puts "Hello from inside the execute method!" }
+
+
+### Exercise 5 ###
+
+=begin
+
+Why does the following code...
+
+
+Give us the following error when we run it?
+
+
+block.rb1:in `execute': wrong number of arguments (0 for 1) (ArgumentError)
+from test.rb:5:in `<main>'
+
+=end
+
+def execute(block)
+    block.call
+end
+  
+execute { puts "Hello from inside the execute method!" }
+
+=begin
+
+answer
+
+It's missing the & in the argument. The & allows the block to be passed as a parameter
+
+=end
