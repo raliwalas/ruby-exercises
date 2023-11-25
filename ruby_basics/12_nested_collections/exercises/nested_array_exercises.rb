@@ -96,34 +96,8 @@ def find_favorite(array_of_hash_objects)
   # return true to the :is_my_favorite? key
 
 
-=begin
-  array_of_hash_objects.each_with_index do |objects|
-    objects.each_with_index do |key, value|
-      if key == :is_my_favorite?
-        if value == true
-          return objects
-        end
-      else
-        return nil
-      end
-    end
-  end
-=end
-
-# FIXME
-
-  array_of_hash_objects.all? do |object|
-    object.any? do |key| 
-      if key == :is_my_favorite?
-        if object[:is_my_favorite?] == true
-          return object
-        end
-      else 
-        return nil
-      end
-    end
-  end
-
-
+  favorite = array_of_hash_objects.find {|key, value| key[:is_my_favorite?] == true}
+  
+  return favorite
 
 end
